@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Books.Models.Book>
+
+<h1>List Books</h1>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Hidden("book.Id")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var book in Model)
+{
+    <tr>      
+        <td>
+            @Html.Hidden((book.Id).ToString())         
+        </td>    
+         <td>
+            @Html.DisplayFor(modelItem => book.Title)            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => book.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => book.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => book.Language)
+        </td>
+        <td> 
+            @Html.ActionLink("Edit", "Edit_Book", new { book.Id})       
+            @Html.ActionLink("Delete", "Delete", new { book.Id })
+        </td>
+    </tr>
+
+}
+</table>
+
